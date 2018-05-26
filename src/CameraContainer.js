@@ -23,10 +23,10 @@ class CameraContainer extends Component {
       <div className="relative h-100 flex flex-column items-center justify-center">
         <Webcam
           audio={false}
-          height={screen}
+          height={480}
           ref={this.setRef}
           screenshotFormat="image/jpeg"
-          width={'auto'}
+          width={640}
         />
         <div className="absolute flex top0 left0">
           <img src={this.props.imageSrc}></img>
