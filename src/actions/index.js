@@ -1,5 +1,5 @@
 import Web3 from 'web3'
-
+import axios from 'axios'
 // import TokenizedTicket from '../../build/contracts/TokenizedTicket.json'
 
 
@@ -8,8 +8,23 @@ export const INSTANTIATE_CONTRACT = 'initiate_contract'
 export const CREATE_ZOMBIE = 'create_zombie'
 
 import {
-  STORE_IMAGE
+  STORE_IMAGE,
+  FETCH_KITTY
 } from '../actions/types'
+
+export function fetchKitty(address) {
+  return function(dispatch) {
+    const root = 'https://api.cryptokitties.co/kitties?owner_wallet_address='
+    const url = `${root}${address}`
+    axios.get(url).then((response) => {
+      const action = {
+        type: FETCH_KITTY,
+        payload: response.data.kitties[0].image_url
+      }
+      dispatch(action)
+    })
+  }
+}
 
 export function storeImage (src) {
   return {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CameraContainer from './CameraContainer'
+import KittyContainer from './KittyContainer'
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +16,7 @@ class Home extends Component {
           <div className="flex br-100 w1 h1 mh1 bg-near-white shadow-1"></div>
         </div>
         <CameraContainer />
+        <KittyContainer />
       </div>
     );
   }
