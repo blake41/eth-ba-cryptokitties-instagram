@@ -20,19 +20,21 @@ class CameraContainer extends Component {
 
   render() {
     return (
-      <div className="flex w-100 flex-column items-center justify-center">
+      <div className="relative h-100 flex flex-column items-center justify-center">
         <Webcam
           audio={false}
-          height={350}
+          height={screen}
           ref={this.setRef}
           screenshotFormat="image/jpeg"
-          width={350}
+          width={'auto'}
         />
-        <div className="flex flex-row w-100">
-        <Link className="flex pv2 ph4 br1 ttu uppercase bg-near-white dark-gray f3 link pointer" to={'/playground'}>Save</Link>
-        <button className="flex flex-grow-1 pv2 ph4 br1 ttu uppercase bg-gradient-green near-white f3 pointer" onClick={this.capture}>Capture</button>
+        <div className="absolute flex top0 left0">
+          <img src={this.props.imageSrc}></img>
         </div>
-        <img src={this.props.imageSrc}></img>
+        <div className="flex flex-row w-100">
+          <Link className="flex pv2 ph4 br1 ttu uppercase bg-gradient-gray dark-gray f2 link pointer" to={'/playground'}>Save</Link>
+          <button className="flex flex-grow-1 pv2 ph4 br--left ttu uppercase bg-gradient-green near-white f2 outline bn pointer" onClick={this.capture}>Capture</button>
+        </div>
       </div>
     );
   }

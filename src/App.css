@@ -20,12 +20,20 @@ code {
 
 /* Positioning Styles */
 
+.top0 {
+  top: 0px;
+}
+
 .bottom0 {
   bottom: 0px;
 }
 
 .left0 {
   left: 0px;
+}
+
+.overflow-auto {
+  overflow: auto;
 }
 
 /* Aesthetics */
