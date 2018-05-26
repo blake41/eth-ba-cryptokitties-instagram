@@ -44,14 +44,14 @@ class Switcher extends Component {
               width={640}
             />
           </CameraContainer>
-          <KittyContainer />
+
         </div>
       )
     } else if (this.props.match.path === "/check") {
       children = (
         <div>
           <CameraContainer leftRoute={'/capture'}
-            leftButtonText={"Retake"}
+            leftButtonText={"BACK"}
             rightButtonText={"Confirm"}
             rightAction={()=> {this.props.history.push('/playground')}}
             >
@@ -76,11 +76,11 @@ class Switcher extends Component {
     } else if (this.props.match.path === "/checkPlayground") {
       children = (
         <CameraContainer leftRoute={"/playground"}
-          leftButtonText={"Re-Arrange"}
+          leftButtonText={"BACK"}
           rightButtonText={"Share"}
           >
           <div className="flex top0 left0">
-            <img src={this.props.playGroundSrc}></img>
+            <img height="480" src={this.props.playGroundSrc}></img>
           </div>
         </CameraContainer>
       )

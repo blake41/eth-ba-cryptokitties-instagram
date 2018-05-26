@@ -9,15 +9,14 @@ class CameraContainer extends Component {
 
   render() {
     return (
-      <div className="relative h-100 flex flex-column items-center justify-center">
+      <div className="relative  flex flex-column items-center justify-center">
         {this.props.children}
-        <div className="flex flex-row w-100">
-          <Link className="flex pv2 ph4 br1 ttu uppercase bg-gradient-gray dark-gray f2 link pointer"
+        <div className="relative-ns absolute left0 mt3 bottom0 flex flex-row w-100">
+          <Link className="flex pv2 ph4 br1 ttu uppercase bg-gradient-gray dark-gray f2 link pointer font-adieu"
             to={this.props.leftRoute}>{this.props.leftButtonText}</Link>
-          <button className="flex flex-grow-1 pv2 ph4 br--left ttu uppercase bg-gradient-green near-white f2 outline bn pointer"
+          <button className="button-right flex w-100-ns w-auto pv2 ph4 br--left ttu uppercase bg-gradient-green near-white f2  bn pointer font-adieu pl4"
             onClick={this.props.rightAction}>{this.props.rightButtonText}</button>
         </div>
-        <KittyContainer />
       </div>
     );
   }
