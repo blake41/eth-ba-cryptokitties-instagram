@@ -7,8 +7,8 @@ class KittyImage extends Component {
 
   render() {
     return (
-      <div className="">
-        <img src={this.props.kittySrc}></img>
+      <div className="flex">
+        <img className="flex w-100 mw6" src={this.props.kittySrc}></img>
       </div>
     );
   }
