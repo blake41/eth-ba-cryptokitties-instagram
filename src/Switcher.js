@@ -4,13 +4,10 @@ import KittyContainer from './KittyContainer'
 import Home from './Home'
 import Webcam from 'react-webcam'
 import { connect } from 'react-redux'
-import {storeImage} from './actions'
+import { storeImage, savePlayground } from './actions'
 import PlayGround from './PlayGround'
 
 class Switcher extends Component {
-
-  componentDidMount() {
-  }
 
   setRef = (webcam) => {
     this.webcam = webcam;
@@ -21,6 +18,13 @@ class Switcher extends Component {
     this.props.storeImage(imageSrc)
     this.props.history.push('/check')
   };
+
+  savePlayground = () => {
+    var canvas = document.getElementById("canvas")
+    var dataURL = canvas.toDataURL()
+    this.props.savePlayground(dataURL)
+    this.props.history.push('/checkPlayground')
+  }
 
   render() {
     var children
@@ -93,8 +97,9 @@ class Switcher extends Component {
 function mapStateToProps(state) {
   return {
     kittySrc: state.get('kitty').src,
-    userSrc: state.get('image').src
+    userSrc: state.get('image').src,
+    playGroundSrc: state.get('playGround').src
   }
 }
 
-export default connect(mapStateToProps, {storeImage})(Switcher)
+export default connect(mapStateToProps, {storeImage, savePlayground})(Switcher)
