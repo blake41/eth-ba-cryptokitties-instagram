@@ -7,7 +7,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className="w-100 h-100 flex relative items-center justify-center">
         <CameraContainer />
       </div>
     );
