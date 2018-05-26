@@ -7,15 +7,12 @@ class PlayGround extends Component {
   render() {
     return (
       <div>
-        <KittyContainer />
-        <div className="">
-          {this.props.userSrc &&
-            <CanvasWrapper
-            kittySrc={this.props.kittySrc}
-            userSrc={this.props.userSrc}
-            />
-          }
-        </div>
+        {this.props.userSrc &&
+          <CanvasWrapper
+          kittySrc={this.props.kittySrc}
+          userSrc={this.props.userSrc}
+          />
+        }
       </div>
     );
   }
