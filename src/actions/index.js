@@ -14,8 +14,9 @@ import {
 
 export function fetchKitty(address) {
   return function(dispatch) {
+    const prepend = 'https://cors-anywhere.herokuapp.com/'
     const root = 'https://api.cryptokitties.co/kitties?owner_wallet_address='
-    const url = `${root}${address}`
+    const url = `${prepend}${root}${address}`
     axios.get(url).then((response) => {
       const action = {
         type: FETCH_KITTY,
