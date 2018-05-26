@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import Webcam from 'react-webcam'
-import { connect } from 'react-redux'
-import {storeImage} from './actions'
 import KittyContainer from './KittyContainer'
-
+import { Link } from 'react-router-dom'
+class CameraContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {imageSrc: null}
