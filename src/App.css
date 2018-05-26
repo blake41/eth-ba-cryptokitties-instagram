@@ -11,7 +11,11 @@ body,
 }
 
 h1, h2, h3 {
-  font-family: 'Adieu', 'Arial Narrow', sans-serif;
+  font-family: 'Adieu', 'Arial Extended', sans-serif;
+}
+
+.font-adieu {
+  font-family: 'Adieu', 'Arial Extended', sans-serif;
 }
 
 code {
@@ -23,8 +27,11 @@ code {
 
 /* Custom Styles - Move to new stylesheet */
 
-/* Positioning Styles */
+canvas {
+  border: 0px;
+}
 
+/* Positioning Styles */
 
 .top0 {
   top: 0px;
@@ -175,5 +182,4 @@ code {
 .canvas-container {
   width: 1000px;
   height: 200px;
-  border: 5px black solid;
 }
