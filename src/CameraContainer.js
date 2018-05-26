@@ -14,7 +14,7 @@ class CameraContainer extends Component {
 
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
-    this.props.storeImage({imageSrc})
+    this.props.storeImage(imageSrc)
   };
 
   render() {
@@ -36,7 +36,7 @@ class CameraContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    // imageSrc: state.image.src 
+    imageSrc: state.get('image').src
   }
 }
 
