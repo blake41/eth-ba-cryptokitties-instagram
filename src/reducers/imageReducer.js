@@ -1,13 +1,11 @@
-const initialState = {
-  web3Instance: null
-}
+import {
+  STORE_IMAGE
+} from "../actions/types";
 
-const imageReducer = (state = initialState, action) => {
-  if (action.type === 'WEB3_INITIALIZED')
-  {
-    return Object.assign({}, state, {
-      imageInstance: action.payload.imageInstance
-    })
+const imageReducer = (state = {src: null}, action) => {
+  switch(action.type) {
+    case STORE_IMAGE:
+      return {src: action.payload}
   }
 
   return state

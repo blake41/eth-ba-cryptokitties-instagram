@@ -7,6 +7,10 @@ export const GET_WEB3 = 'get_web3'
 export const INSTANTIATE_CONTRACT = 'initiate_contract'
 export const CREATE_ZOMBIE = 'create_zombie'
 
+import {
+  STORE_IMAGE
+} from '../actions/types'
+
 export function storeImage (src) {
   return {
     type: STORE_IMAGE,

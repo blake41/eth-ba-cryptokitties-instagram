@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import userReducer from './user/userReducer'
+import imageReducer from './reducers/imageReducer'
 import web3Reducer from './util/web3/web3Reducer'
 
 const reducer = combineReducers({
   routing: routerReducer,
-  user: userReducer,
+  image: imageReducer,
   web3: web3Reducer
 })
 

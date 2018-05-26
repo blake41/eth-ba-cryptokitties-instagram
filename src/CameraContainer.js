@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Webcam from 'react-webcam'
-
+import { connect } from 'react-redux'
+import {storeImage} from './actions'
 class CameraContainer extends Component {
 
   constructor(props) {
@@ -13,7 +14,7 @@ class CameraContainer extends Component {
 
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
-    this.setState({imageSrc})
+    this.props.storeImage({imageSrc})
   };
 
   render() {
@@ -27,10 +28,16 @@ class CameraContainer extends Component {
           width={350}
         />
         <button onClick={this.capture}>Capture photo</button>
-        <img src={this.state.imageSrc}></img>
+        <img src={this.props.imageSrc}></img>
       </div>
     );
   }
 }
 
-export default CameraContainer
+function mapStateToProps(state) {
+  return {
+    // imageSrc: state.image.src 
+  }
+}
+
+export default connect(mapStateToProps, {storeImage})(CameraContainer)

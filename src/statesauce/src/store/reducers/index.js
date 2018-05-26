@@ -5,6 +5,7 @@ import contract from './contract'
 import defaultAccount from './defaultAccount'
 import web3Error from './web3Error'
 import secondContract from './secondContract'
+import imageReducer from '../../../../reducers/imageReducer'
 export {
   web3,
   accounts,
@@ -20,7 +21,8 @@ export const reducers = {
   contract,
   defaultAccount,
   web3Error,
-  secondContract
+  secondContract,
+  imageReducer
 }
 
 const web3CombinedReducers = combineReducers(reducers)
