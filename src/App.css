@@ -16,6 +16,8 @@ code {
   background: #eee;
 }
 
+/* Custom Styles - Move to new stylesheet */
+
 /* Positioning Styles */
 
 .bottom0 {
@@ -25,6 +27,18 @@ code {
 .left0 {
   left: 0px;
 }
+
+/* Aesthetics */
+
+.bg-gradient-green {
+  background: linear-gradient(#6FCF97, #219653);
+}
+
+.bg-gradient-gray {
+  background: linear-gradient(#FFFFFF, #E5E5E5);
+}
+
+/* End custom styles */
 
 .container {
   box-sizing: border-box;
