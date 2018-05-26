@@ -48,7 +48,7 @@ class Switcher extends Component {
         <div>
           <CameraContainer leftRoute={'/capture'}
             leftButtonText={"Retake"}
-            rightButtonText={"Save"}
+            rightButtonText={"Confirm"}
             rightAction={()=> {this.props.history.push('/playground')}}
             >
             <div className="flex top0 left0">
@@ -57,13 +57,27 @@ class Switcher extends Component {
           </CameraContainer>
         </div>
       )
-    } else if (this.props.match.patch === "/playground") {
+    } else if (this.props.match.path === "/playground") {
       children = (
         <CameraContainer leftRoute={"/check"}
           leftButtonText={"Back"}
+          rightButtonText={"Save"}
+          rightAction={this.savePlayground}
+          >
+          <PlayGround userSrc={this.props.userSrc}
+            kittySrc={this.props.kittySrc}
+            />
+        </CameraContainer>
+      )
+    } else if (this.props.match.path === "/checkPlayground") {
+      children = (
+        <CameraContainer leftRoute={"/playground"}
+          leftButtonText={"Re-Arrange"}
           rightButtonText={"Share"}
           >
-          <PlayGround />
+          <div className="flex top0 left0">
+            <img src={this.props.playGroundSrc}></img>
+          </div>
         </CameraContainer>
       )
     }

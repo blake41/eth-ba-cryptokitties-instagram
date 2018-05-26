@@ -42,6 +42,7 @@ ReactDOM.render((
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path='/playground' component={Switcher} />
+          <Route path='/checkPlayground' component={Switcher} />
           <Route path='/capture' component={Switcher} />
           <Route path='/check' component={Switcher} />
           <Route path='/kittySelect' component={KittySelect} />
