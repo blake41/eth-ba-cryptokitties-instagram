@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Adieu';
+  font-weight: 400;
+  font-style: normal;
+  src:
+       local('Adieu'),
+       local('Adieu'),
+       url('../fonts/Open-Sans-regular/adieu-regular-webfont.woff2') format('woff2'),
+       url('../fonts/Open-Sans-regular/adieu-regular-webfont.woff') format('woff'),
+       url('../fonts/Open-Sans-regular/adieu-regular-webfont.ttf') format('truetype'),
+}

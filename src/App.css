@@ -11,7 +11,7 @@ body,
 }
 
 h1, h2, h3 {
-  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  font-family: 'Adieu', 'Arial Narrow', sans-serif;
 }
 
 code {
@@ -24,6 +24,7 @@ code {
 /* Custom Styles - Move to new stylesheet */
 
 /* Positioning Styles */
+
 
 .top0 {
   top: 0px;
@@ -41,7 +42,51 @@ code {
   overflow: auto;
 }
 
+.justify-content-center {
+  justify-content: center;
+}
+
+.skew-container {
+  transform: skew(52deg, -6deg);
+}
+.skew {
+  transform: skew(-50deg, -6deg);
+}
+
 /* Aesthetics */
+
+.dark-purple {
+  color: hsla(256, 90%, 30%, 1);
+}
+
+.bg-animated-gradient {
+  background: linear-gradient(274deg, #f5e1af,hsla(43, 90%, 82%, 1), #fdd480, #f38cd1);
+  background-size: 600% 600%;
+  -webkit-animation: AnimationName 30s ease infinite;
+  -moz-animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite;
+}
+
+  @-webkit-keyframes AnimationName {
+      0%{background-position:0% 53%}
+      50%{background-position:100% 48%}
+      100%{background-position:0% 53%}
+  }
+  @-moz-keyframes AnimationName {
+      0%{background-position:0% 53%}
+      50%{background-position:100% 48%}
+      100%{background-position:0% 53%}
+  }
+  @keyframes AnimationName {
+      0%{background-position:0% 53%}
+      50%{background-position:100% 48%}
+      100%{background-position:0% 53%}
+  }
+
+
+.bg-warm-yellow {
+  background: hsla(40, 100%, 75%, 1);
+}
 
 .bg-gradient-green {
   background: linear-gradient(#6FCF97, #219653);
@@ -49,6 +94,22 @@ code {
 
 .bg-gradient-gray {
   background: linear-gradient(#FFFFFF, #E5E5E5);
+}
+
+.bg-gradient-orange {
+  background: linear-gradient(#FFE49E, rgba(254, 222, 184, 0.5));
+}
+
+.shadow-4-deep {
+  box-shadow: 0px 0px 12px 0 rgba(0,0,0,.5);
+}
+
+.shadow-hover {
+  transition: 0.2s ease-in-out;
+}
+
+.shadow-hover:hover {
+  box-shadow: 0 0 24px 4px rgba(0,0,0,.24);
 }
 
 /* End custom styles */
