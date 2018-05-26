@@ -19,6 +19,7 @@ class Switcher extends Component {
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
     this.props.storeImage(imageSrc)
+    this.props.history.push('/check')
   };
 
   render() {
@@ -26,8 +27,10 @@ class Switcher extends Component {
     if (this.props.match.path === "/capture") {
       children = (
         <div>
-          <CameraContainer capture={this.capture}
-            next={'/check'}
+          <CameraContainer rightAction={this.capture}
+            leftRoute={'/kittySelect'}
+            rightButtonText={"Capture"}
+            leftButtonText={"Back"}
             >
             <Webcam
               audio={false}
@@ -43,16 +46,25 @@ class Switcher extends Component {
     } else if (this.props.match.path === "/check") {
       children = (
         <div>
-          <CameraContainer next={'/playground'}>
-            <div className="absolute flex top0 left0">
-              <img src={this.props.imageSrc}></img>
+          <CameraContainer leftRoute={'/capture'}
+            leftButtonText={"Retake"}
+            rightButtonText={"Save"}
+            rightAction={()=> {this.props.history.push('/playground')}}
+            >
+            <div className="flex top0 left0">
+              <img src={this.props.userSrc}></img>
             </div>
           </CameraContainer>
         </div>
       )
     } else if (this.props.match.patch === "/playground") {
       children = (
-        <PlayGround />
+        <CameraContainer leftRoute={"/check"}
+          leftButtonText={"Back"}
+          rightButtonText={"Share"}
+          >
+          <PlayGround />
+        </CameraContainer>
       )
     }
     return(
@@ -66,7 +78,8 @@ class Switcher extends Component {
 
 function mapStateToProps(state) {
   return {
-    imageSrc: state.get('image').src
+    kittySrc: state.get('kitty').src,
+    userSrc: state.get('image').src
   }
 }
 
