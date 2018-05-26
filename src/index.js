@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Switch } from 'react-router-dom'
 // import { Router,, IndexRoute, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
@@ -14,6 +15,7 @@ import SignUp from './user/layouts/signup/SignUp'
 import Profile from './user/layouts/profile/Profile'
 import SethHome from './SethHome'
 import Home from './Home'
+import PlayGround from './PlayGround'
 // Redux Store
 // import store from './store'
 import { BrowserRouter, Route } from 'react-router-dom'
@@ -34,8 +36,10 @@ import { store } from './statesauce/src/statesauce.js'
 ReactDOM.render((
     <Provider store={store}>
       <BrowserRouter>
-        <Route path="/" component={Home}>
-        </Route>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path='/playground' component={PlayGround} />
+        </Switch>
       </BrowserRouter>
     </Provider>
   ),

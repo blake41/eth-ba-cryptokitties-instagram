@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CameraContainer from './CameraContainer'
 import KittyContainer from './KittyContainer'
+import PlayGround from './PlayGround'
 class Home extends Component {
   constructor(props) {
     super(props);

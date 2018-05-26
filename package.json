@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "fabric": "^2.3.0",
     "immutable": "^3.8.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
