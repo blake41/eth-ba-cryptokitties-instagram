@@ -3,15 +3,17 @@ import Webcam from 'react-webcam'
 
 class CameraContainer extends Component {
 
-  constructor() {
-    this.state = {imageData: null}
+  constructor(props) {
+    super(props)
+    this.state = {imageSrc: null}
   }
   setRef = (webcam) => {
-      this.webcam = webcam;
-    }
+    this.webcam = webcam;
+  }
 
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
+    this.setState({imageSrc})
   };
 
   render() {
@@ -25,6 +27,7 @@ class CameraContainer extends Component {
           width={350}
         />
         <button onClick={this.capture}>Capture photo</button>
+        <img src={this.state.imageSrc}></img>
       </div>
     );
   }
