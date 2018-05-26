@@ -23,10 +23,10 @@ class CameraContainer extends Component {
       <div className="flex w-100 flex-column items-center justify-center">
         <Webcam
           audio={false}
-          height={350}
+          height={480}
           ref={this.setRef}
           screenshotFormat="image/jpeg"
-          width={350}
+          width={640}
         />
         <div className="flex flex-row w-100">
         <Link className="flex pv2 ph4 br1 ttu uppercase bg-near-white dark-gray f3 link pointer" to={'/playground'}>Save</Link>
