@@ -27,8 +27,8 @@ class CameraContainer extends Component {
           screenshotFormat="image/jpeg"
           width={350}
         />
-        <button onClick={this.capture}>Capture photo</button>
-        <img src={this.props.imageSrc}></img>
+        <button className="flex pv2 ph4 br4 ttu uppercase" onClick={this.capture}>Capture photo</button>
+        <img src={this.state.imageSrc}></img>
       </div>
     );
   }
