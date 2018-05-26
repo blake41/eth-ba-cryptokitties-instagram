@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Webcam from 'react-webcam'
 import { connect } from 'react-redux'
 import {storeImage} from './actions'
+import { Link } from 'react-router-dom'
 class CameraContainer extends Component {
 
   constructor(props) {
@@ -29,6 +30,7 @@ class CameraContainer extends Component {
         />
         <button className="flex pv2 ph4 br4 ttu uppercase" onClick={this.capture}>Capture photo</button>
         <img src={this.props.imageSrc}></img>
+        <Link to={'/playground'}>mash image</Link>
       </div>
     );
   }

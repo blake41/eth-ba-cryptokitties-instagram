@@ -9,7 +9,12 @@ class PlayGround extends Component {
       <div>
         <KittyContainer />
         <div className="">
-          {this.props.kittySrc && <CanvasWrapper kittySrc={this.props.kittySrc}/>}
+          {this.props.kittySrc && this.props.userSrc &&
+            <CanvasWrapper
+            kittySrc={this.props.kittySrc}
+            userSrc={this.props.userSrc}  
+            />
+          }
         </div>
       </div>
     );
@@ -18,7 +23,8 @@ class PlayGround extends Component {
 
 function mapStateToProps(state) {
   return {
-    kittySrc: state.get('kitty').src
+    kittySrc: state.get('kitty').src,
+    userSrc: state.get('image').src
   }
 }
 
