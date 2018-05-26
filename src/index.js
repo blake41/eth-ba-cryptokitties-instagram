@@ -16,6 +16,9 @@ import Profile from './user/layouts/profile/Profile'
 import SethHome from './SethHome'
 import Home from './Home'
 import PlayGround from './PlayGround'
+import Check from './Check'
+import KittySelect from './KittySelect'
+import Switcher from './Switcher'
 // Redux Store
 // import store from './store'
 import { BrowserRouter, Route } from 'react-router-dom'
@@ -38,7 +41,11 @@ ReactDOM.render((
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path='/playground' component={PlayGround} />
+          <Route path='/playground' component={Switcher} />
+          <Route path='/capture' component={Switcher} />
+          <Route path='/check' component={Switcher} />
+          <Route path='/kittySelect' component={KittySelect} />
+
         </Switch>
       </BrowserRouter>
     </Provider>
