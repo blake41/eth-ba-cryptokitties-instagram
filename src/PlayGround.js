@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CanvasWrapper from './CanvasWrapper'
-import KittyContainer from './KittyContainer'
 class PlayGround extends Component {
 
   render() {
@@ -18,11 +17,4 @@ class PlayGround extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    kittySrc: state.get('kitty').src,
-    userSrc: state.get('image').src
-  }
-}
-
-export default connect(mapStateToProps, null)(PlayGround)
+export default PlayGround
