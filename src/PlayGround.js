@@ -9,10 +9,10 @@ class PlayGround extends Component {
       <div>
         <KittyContainer />
         <div className="">
-          {this.props.kittySrc && this.props.userSrc &&
+          {
             <CanvasWrapper
             kittySrc={this.props.kittySrc}
-            userSrc={this.props.userSrc}  
+            userSrc={this.props.userSrc}
             />
           }
         </div>
