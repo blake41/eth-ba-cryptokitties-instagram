@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import {fabric} from 'fabric';
 class CanvasWrapper extends Component {
-
-  constructor(props) {
-    super(props)
-    this.handleClick = this.handleClick.bind(this)
-    this.state = {compositeImage: null}
-  }
+  //
+  // constructor(props) {
+  //   super(props)
+  //   this.handleClick = this.handleClick.bind(this)
+  //   this.state = {compositeImage: null}
+  // }
 
   componentDidMount() {
     var imgURL = 'https://s3.amazonaws.com/eth-kitties/752340.svg';
@@ -38,24 +38,17 @@ class CanvasWrapper extends Component {
     });
   }
 
-  handleClick(event) {
+  handleClick() {
     var canvas = document.getElementById("canvas")
-    // canvas.toBlob((blob) => {
-    // })
     var dataURL = canvas.toDataURL()
-    this.setState({compositeImage: dataURL})
+    // this.setState({compositeImage: dataURL})
+    this.props.savePlayground(dataURL)
   }
 
   render() {
     return (
       <div>
         <canvas id="canvas" width="640" height="480"></canvas>
-        <div>
-          <button onClick={this.handleClick}>Save Composite</button>
-        </div>
-        <div>
-          <img src={this.state.compositeImage}></img>
-        </div>
       </div>
     );
   }

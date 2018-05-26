@@ -10,6 +10,7 @@ class PlayGround extends Component {
           <CanvasWrapper
           kittySrc={this.props.kittySrc}
           userSrc={this.props.userSrc}
+          savePlayground={this.props.savePlayground}
           />
         }
       </div>
