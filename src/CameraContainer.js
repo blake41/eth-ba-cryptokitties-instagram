@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-class CameraContainer extends Component {
+import Webcam from 'react-webcam'
+import { connect } from 'react-redux'
+import {storeImage} from './actions'
+import KittyContainer from './KittyContainer'
 
   constructor(props) {
     super(props)
@@ -17,6 +19,7 @@ class CameraContainer extends Component {
           <button className="flex flex-grow-1 pv2 ph4 br--left ttu uppercase bg-gradient-green near-white f2 outline bn pointer"
             onClick={this.props.rightAction}>{this.props.rightButtonText}</button>
         </div>
+        <KittyContainer />
       </div>
     );
   }
