@@ -22,34 +22,22 @@ class CanvasWrapper extends Component {
       scaleX: .25,
       scaleY: .25
     }
-    var puppyUrl = 'http://i.imgur.com/8rmMZI3.jpg';
-    var imgUrl = this.props.kittySrc
+    var kittyUrl = this.props.kittySrc
     var canvas = new fabric.Canvas('canvas');
 
-    fabric.Image.fromURL(imgUrl, function(img) {
+    fabric.Image.fromURL(kittyUrl, function(img) {
       img.set(props);
       canvas.add(img).setActiveObject(img);
     });
 
     fabric.Image.fromURL(this.props.userSrc, function(img) {
-      img.set(puppyProps);
-      canvas.add(img).setActiveObject(img);
+      // img.set(puppyProps);
+      // canvas.add(img).setActiveObject(img);
+      canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
+        scaleX: canvas.width / img.width,
+        scaleY: canvas.height / img.height
+     });
     });
-
-    // var pugImg = new Image();
-    // pugImg.onload = function (img) {
-    //     var pug = new fabric.Image(pugImg, {
-    //         angle: 45,
-    //         width: 500,
-    //         height: 500,
-    //         left: 50,
-    //         top: 70,
-    //         scaleX: .25,
-    //         scaleY: .25
-    //     });
-    //     canvas.add(pug);
-    // };
-    // pugImg.src = imgURL;
   }
 
   render() {
