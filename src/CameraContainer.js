@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import Webcam from 'react-webcam'
 
 class CameraContainer extends Component {
+
+  constructor() {
+    this.state = {imageData: null}
+  }
   setRef = (webcam) => {
       this.webcam = webcam;
     }
