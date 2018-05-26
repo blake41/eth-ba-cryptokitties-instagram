@@ -18,7 +18,7 @@ class CameraContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="flex flex-column items-center justify-center">
         <Webcam
           audio={false}
           height={350}
