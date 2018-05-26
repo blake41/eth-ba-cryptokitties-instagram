@@ -6,11 +6,18 @@ import axios from 'axios'
 export const GET_WEB3 = 'get_web3'
 export const INSTANTIATE_CONTRACT = 'initiate_contract'
 export const CREATE_ZOMBIE = 'create_zombie'
-
 import {
   STORE_IMAGE,
-  FETCH_KITTY
+  FETCH_KITTY,
+  SAVE_PLAYGROUND
 } from '../actions/types'
+
+export function savePlayground(dataURL) {
+  return {
+    type: SAVE_PLAYGROUND,
+    payload: dataURL
+  }
+}
 
 export function fetchKitty(address) {
   return function(dispatch) {

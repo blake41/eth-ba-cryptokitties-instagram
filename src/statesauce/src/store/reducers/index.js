@@ -7,6 +7,7 @@ import web3Error from './web3Error'
 import secondContract from './secondContract'
 import image from '../../../../reducers/imageReducer'
 import kitty from '../../../../reducers/kittyReducer'
+import playGround from '../../../../reducers/playGroundReducer'
 export {
   web3,
   accounts,
@@ -24,7 +25,8 @@ export const reducers = {
   web3Error,
   secondContract,
   image,
-  kitty
+  kitty,
+  playGround
 }
 
 const web3CombinedReducers = combineReducers(reducers)
