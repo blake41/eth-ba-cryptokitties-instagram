@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import CameraContainer from './CameraContainer'
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -7,7 +7,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        <CameraContainer />
+      </div>
     );
   }
 }
