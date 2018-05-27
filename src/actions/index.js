@@ -9,8 +9,27 @@ export const CREATE_ZOMBIE = 'create_zombie'
 import {
   STORE_IMAGE,
   FETCH_KITTY,
-  SAVE_PLAYGROUND
+  SAVE_PLAYGROUND,
+  GET_KITTIES
 } from '../actions/types'
+
+export function getKitties(contract, userAccount) {
+  return function(dispatch) {
+    contract.KittyMemoryCount.call(1).then((res) => {
+      var memoryCount = res.toNumber()
+      var memoryArray = Array.from(Array(memoryCount).keys())
+      memoryArray.forEach((i) => {
+        contract.KittyMemories.call(1, i + 1).then((res) => {
+          const action = {
+            type: GET_KITTIES,
+            payload: {address: res[0], ipfsHash: res[1], comment: res[2]}
+          }
+          dispatch(action)
+        })
+      })
+    })
+  }
+}
 
 export function savePlayground(dataURL) {
   return {

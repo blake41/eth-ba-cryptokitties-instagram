@@ -19,6 +19,7 @@ import PlayGround from './PlayGround'
 import Check from './Check'
 import KittySelect from './KittySelect'
 import Switcher from './Switcher'
+import KittyListContainer from './KittyListContainer'
 // Redux Store
 // import store from './store'
 import { BrowserRouter, Route } from 'react-router-dom'
@@ -39,15 +40,15 @@ import { store } from './statesauce/src/statesauce.js'
 ReactDOM.render((
     <Provider store={store}>
       <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home} />
+        <div>
+          <Route path="/" component={Home} />
           <Route path='/playground' component={Switcher} />
           <Route path='/checkPlayground' component={Switcher} />
           <Route path='/capture' component={Switcher} />
           <Route path='/check' component={Switcher} />
           <Route path='/kittySelect' component={KittySelect} />
-
-        </Switch>
+          <Route path='/kitties' component={KittyListContainer} />
+        </div>
       </BrowserRouter>
     </Provider>
   ),

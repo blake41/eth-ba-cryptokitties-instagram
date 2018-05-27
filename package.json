@@ -51,6 +51,7 @@
     "axios": "^0.18.0",
     "fabric": "^2.3.0",
     "immutable": "^3.8.2",
+    "ipfs-api": "^22.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-html5-camera-photo": "^1.0.0-beta.10",
@@ -66,7 +67,8 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.2.0",
-    "web3": "^1.0.0-beta.34"
+    "web3": "^1.0.0-beta.34",
+    "zos-lib": "^1.0.0"
   },
   "scripts": {
     "start": "node scripts/start.js",

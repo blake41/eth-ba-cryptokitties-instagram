@@ -9,6 +9,11 @@ import PlayGround from './PlayGround'
 
 class Switcher extends Component {
 
+  constructor(props) {
+    super(props)
+    this.saveToIPFS = this.saveToIPFS.bind(this)
+  }
+
   setRef = (webcam) => {
     this.webcam = webcam;
   }
@@ -86,6 +91,9 @@ class Switcher extends Component {
           <div className="flex top0 left0">
             <img height="480" src={this.props.playGroundSrc}></img>
           </div>
+          <button onClick={this.saveToIPFS}>
+            save to ipfs
+          </button>
         </CameraContainer>
       )
     }
