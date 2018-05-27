@@ -64,6 +64,11 @@ canvas {
   top: 9px;
 }
 
+.center-align {
+  top: 40%;
+  transform: translateY(-40%);
+}
+
 /* Aesthetics */
 
 .dark-purple {
@@ -120,7 +125,12 @@ canvas {
 }
 
 .shadow-hover:hover {
+  transform: translateY(-8px);
   box-shadow: 0 0 24px 4px rgba(0,0,0,.24);
+}
+
+.rotate45 {
+  transform: rotate(-45deg);
 }
 
 /* End custom styles */
