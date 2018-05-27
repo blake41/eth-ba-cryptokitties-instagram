@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
-
+import Kitty from './Kitty'
 class KittyList extends Component {
 
-  componentDidMount() {
-    console.log('hello')
-  }
-
   render() {
-    return (
-      <div className="absolute top0">
-        {this.props.kitties.map((kitty) => {
-          return(<div>{kitty.ipfsHash}</div>)
-        })}
+    const kitties = this.props.kitties.map((kitty) => {
+      return(
+        <Kitty key={kitty.ipfsHash} ipfsHash={kitty.ipfsHash}/>
+      )
+    })
+    return(
+      <div>
+        {kitties}
       </div>
-    );
+    )
   }
 }
-
 
 export default KittyList
