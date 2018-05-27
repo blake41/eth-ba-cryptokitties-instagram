@@ -14,6 +14,7 @@ import Dashboard from './layouts/dashboard/Dashboard'
 import SignUp from './user/layouts/signup/SignUp'
 import Profile from './user/layouts/profile/Profile'
 import SethHome from './SethHome'
+import AlexHome from './AlexHome'
 import Home from './Home'
 import PlayGround from './PlayGround'
 import Check from './Check'
@@ -41,7 +42,7 @@ ReactDOM.render((
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={AlexHome} />
           <Route path='/playground' component={Switcher} />
           <Route path='/checkPlayground' component={Switcher} />
           <Route path='/capture' component={Switcher} />
