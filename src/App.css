@@ -45,6 +45,10 @@ canvas {
   left: 0px;
 }
 
+.right0 {
+  right: 0px;
+}
+
 .overflow-auto {
   overflow: auto;
 }
@@ -67,6 +71,10 @@ canvas {
 .center-align {
   top: 40%;
   transform: translateY(-40%);
+}
+
+.z--9 {
+  z-index: -9;
 }
 
 /* Aesthetics */
@@ -127,6 +135,22 @@ canvas {
 .shadow-hover:hover {
   transform: translateY(-8px);
   box-shadow: 0 0 24px 4px rgba(0,0,0,.24);
+}
+
+.transit-left-hover {
+  transition: 0.2s ease-in-out;
+}
+
+.transit-left-hover:hover {
+  transform: translateX(-8px);
+}
+
+.transit-right-hover {
+  transition: 0.2s ease-in-out;
+}
+
+.transit-right-hover:hover {
+  transform: translateX(8px);
 }
 
 .rotate45 {
