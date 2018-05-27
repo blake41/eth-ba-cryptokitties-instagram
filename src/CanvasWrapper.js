@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
 import {fabric} from 'fabric';
 class CanvasWrapper extends Component {
-  //
-  // constructor(props) {
-  //   super(props)
-  //   this.handleClick = this.handleClick.bind(this)
-  //   this.state = {compositeImage: null}
-  // }
 
   componentDidMount() {
     var imgURL = 'https://s3.amazonaws.com/eth-kitties/752340.svg';
@@ -36,13 +30,6 @@ class CanvasWrapper extends Component {
         scaleY: canvas.height / img.height
       });
     });
-  }
-
-  handleClick() {
-    var canvas = document.getElementById("canvas")
-    var dataURL = canvas.toDataURL()
-    // this.setState({compositeImage: dataURL})
-    this.props.savePlayground(dataURL)
   }
 
   render() {

@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import CameraContainer from './CameraContainer'
 import KittyContainer from './KittyContainer'
 import Home from './Home'
+import { selectors } from './statesauce/src/statesauce'
 import Webcam from 'react-webcam'
 import { connect } from 'react-redux'
 import { storeImage, savePlayground } from './actions'
 import PlayGround from './PlayGround'
 import KittyListContainer from './KittyListContainer'
 import KittySelect from './KittySelect'
+const Ipfs = require('ipfs-api')
 
 class Switcher extends Component {
 
@@ -30,6 +32,19 @@ class Switcher extends Component {
     var dataURL = canvas.toDataURL()
     this.props.savePlayground(dataURL)
     this.props.history.push('/checkPlayground')
+  }
+
+  saveToIpfs() {
+    const buffer = Buffer.from(this.props.playGroundSrc);
+    const ipfs = Ipfs({host: 'localhost', port: '5001', protocol: 'http'});
+    ipfs.add(buffer)
+    .then((response) => {
+     const hash = response[0].hash
+     this.props.contract.pushMemory(1, hash, "this is a comment on the pic", {gas: 540000, from: this.props.userAccount})
+    }).catch((err) => {
+     console.error(err)
+     // reject(err);
+    })
   }
 
   render() {
@@ -117,7 +132,8 @@ function mapStateToProps(state) {
   return {
     kittySrc: state.get('kitty').src,
     userSrc: state.get('image').src,
-    playGroundSrc: state.get('playGround').src
+    playGroundSrc: state.get('playGround').src,
+    contract: selectors.fromStore.getContract(state)
   }
 }
 
