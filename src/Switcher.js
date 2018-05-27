@@ -15,6 +15,7 @@ class Switcher extends Component {
 
   constructor(props) {
     super(props)
+    this.saveToIpfs = this.saveToIpfs.bind(this)
   }
 
   setRef = (webcam) => {
@@ -34,13 +35,16 @@ class Switcher extends Component {
     this.props.history.push('/checkPlayground')
   }
 
-  saveToIpfs() {
+  saveToIpfs = () => {
     const buffer = Buffer.from(this.props.playGroundSrc);
     const ipfs = Ipfs({host: 'localhost', port: '5001', protocol: 'http'});
     ipfs.add(buffer)
     .then((response) => {
+     console.log(`saved to IPFS:${response}`)
      const hash = response[0].hash
-     this.props.contract.pushMemory(1, hash, "this is a comment on the pic", {gas: 540000, from: this.props.userAccount})
+     this.props.contract.pushMemory(1, hash, "this is a comment on the pic", {gas: 540000, from: this.props.userAccount}).then((res) => {
+       console.log(`saved to ETH${res}`)
+     })
     }).catch((err) => {
      console.error(err)
      // reject(err);
@@ -103,7 +107,7 @@ class Switcher extends Component {
           leftButtonText={"BACK"}
           rightButtonText={"Save To Ipfs"}
           onboardingText={"You're a regular Picasso Kardashian! Go on and share it with the world!"}
-          rightAction={this.saveToIPFS}
+          rightAction={this.saveToIpfs}
           >
           <div className="flex top0 left0">
             <img height="480" src={this.props.playGroundSrc}></img>
@@ -133,7 +137,8 @@ function mapStateToProps(state) {
     kittySrc: state.get('kitty').src,
     userSrc: state.get('image').src,
     playGroundSrc: state.get('playGround').src,
-    contract: selectors.fromStore.getContract(state)
+    contract: selectors.fromStore.getContract(state),
+    userAccount: selectors.fromStore.getDefaultAccount(state)
   }
 }
 
