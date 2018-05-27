@@ -85,15 +85,13 @@ class Switcher extends Component {
       children = (
         <CameraContainer leftRoute={"/playground"}
           leftButtonText={"BACK"}
-          rightButtonText={"Share"}
+          rightButtonText={"Save To Ipfs"}
           onboardingText={"You're a regular Picasso Kardashian! Go on and share it with the world!"}
+          rightAction={this.saveToIPFS}
           >
           <div className="flex top0 left0">
             <img height="480" src={this.props.playGroundSrc}></img>
           </div>
-          <button onClick={this.saveToIPFS}>
-            save to ipfs
-          </button>
         </CameraContainer>
       )
     } else if (this.props.match.path === "/kittySelect") {

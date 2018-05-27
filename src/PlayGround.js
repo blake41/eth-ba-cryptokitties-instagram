@@ -34,7 +34,6 @@ class PlayGround extends Component {
           savePlayground={this.props.savePlayground}
           />
         }
-        <button onClick={this.saveToIpfs}>Save to Eth</button>
       </div>
     );
   }
