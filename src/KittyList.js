@@ -3,13 +3,14 @@ import Kitty from './Kitty'
 class KittyList extends Component {
 
   render() {
-    const kitties = this.props.kitties.map((kitty) => {
+    var myKitties = [{ipfsHash: 'http://i.imgur.com/xmmgPKO.jpg'}]
+    const kitties = myKitties.map((kitty) => {
       return(
         <Kitty key={kitty.ipfsHash} ipfsHash={kitty.ipfsHash}/>
       )
     })
     return(
-      <div>
+      <div className="w-100">
         {kitties}
       </div>
     )
