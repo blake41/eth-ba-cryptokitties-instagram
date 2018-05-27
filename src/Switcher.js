@@ -39,7 +39,7 @@ class Switcher extends Component {
     const buffer = Buffer.from(this.props.playGroundSrc);
     var localConn = {host: 'localhost', port: '5001', protocol: 'http'}
     var infuraConn = {host: 'ipfs.infura.io', port: '5001', protocol: 'https'}
-    const ipfs = Ipfs(infuraConn);
+    const ipfs = Ipfs(localConn);
     ipfs.add(buffer)
     .then((response) => {
      console.log(`saved to IPFS:${response}`)
