@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { storeImage, savePlayground } from './actions'
 import PlayGround from './PlayGround'
 import KittyListContainer from './KittyListContainer'
+import KittySelect from './KittySelect'
 
 class Switcher extends Component {
 
@@ -95,7 +96,9 @@ class Switcher extends Component {
         </CameraContainer>
       )
     } else if (this.props.match.path === "/kittySelect") {
-      children = null
+      children = (
+        <KittySelect />
+      )
     } else if (this.props.match.path ==="/kitties") {
       children = (
         <KittyListContainer />
