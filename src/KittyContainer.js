@@ -14,7 +14,7 @@ class KittyContainer extends Component {
 
   render() {
     return (
-      <div className="absolute flex w-100 mw4 left0 topPositionCat z-9999">
+      <div className="relative flex mw4 left0 topPositionCat z-9999">
         {this.props.kittySrc && <KittyImage kittySrc={this.props.kittySrc}/>}
       </div>
     );

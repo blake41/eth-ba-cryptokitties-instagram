@@ -57,7 +57,6 @@ class Switcher extends Component {
     var children
     if (this.props.match.path === "/capture") {
       children = (
-        <div>
           <CameraContainer rightAction={this.capture}
             leftRoute={'/kittySelect'}
             rightButtonText={"Capture"}
@@ -65,6 +64,7 @@ class Switcher extends Component {
             onboardingText={"Time to smile! Turn that cheese up to cheddar."}
             >
             <Webcam
+              className="z-999"
               audio={false}
               height={480}
               ref={this.setRef}
@@ -72,23 +72,19 @@ class Switcher extends Component {
               width={640}
             />
           </CameraContainer>
-
-        </div>
       )
     } else if (this.props.match.path === "/check") {
       children = (
-        <div>
           <CameraContainer leftRoute={'/capture'}
             leftButtonText={"BACK"}
             rightButtonText={"Confirm"}
             rightAction={()=> {this.props.history.push('/playground')}}
             onboardingText={"Daaaamn you good lookin'! Happy with the photo? Click that green button."}
             >
-            <div className="flex top0 left0">
+            <div className="flex top0 left0 z-999">
               <img src={this.props.userSrc}></img>
             </div>
           </CameraContainer>
-        </div>
       )
     } else if (this.props.match.path === "/playground") {
       children = (
@@ -111,7 +107,7 @@ class Switcher extends Component {
           onboardingText={"You're a regular Picasso Kardashian! Go on and share it with the world!"}
           rightAction={this.saveToIpfs}
           >
-          <div className="flex top0 left0">
+          <div className="flex top0 left0 z-999">
             <img height="480" src={this.props.playGroundSrc}></img>
           </div>
         </CameraContainer>

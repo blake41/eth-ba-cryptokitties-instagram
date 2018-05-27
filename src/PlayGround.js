@@ -9,7 +9,7 @@ class PlayGround extends Component {
 
   render() {
     return (
-      <div>
+      <div class="relative w-100">
         {this.props.userSrc &&
           <CanvasWrapper
           kittySrc={this.props.kittySrc}
