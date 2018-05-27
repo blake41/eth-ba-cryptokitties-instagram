@@ -59,7 +59,7 @@ class Switcher extends Component {
       children = (
           <CameraContainer rightAction={this.capture}
             leftRoute={'/kittySelect'}
-            rightButtonText={"Capture"}
+            rightButtonText={"Snap"}
             leftButtonText={"Back"}
             onboardingText={"Time to smile! Turn that cheese up to cheddar."}
             >
