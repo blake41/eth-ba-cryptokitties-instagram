@@ -6,12 +6,12 @@ import Webcam from 'react-webcam'
 import { connect } from 'react-redux'
 import { storeImage, savePlayground } from './actions'
 import PlayGround from './PlayGround'
+import KittyListContainer from './KittyListContainer'
 
 class Switcher extends Component {
 
   constructor(props) {
     super(props)
-    this.saveToIPFS = this.saveToIPFS.bind(this)
   }
 
   setRef = (webcam) => {
@@ -95,6 +95,12 @@ class Switcher extends Component {
             save to ipfs
           </button>
         </CameraContainer>
+      )
+    } else if (this.props.match.path === "/kittySelect") {
+      children = null
+    } else if (this.props.match.path ==="/kitties") {
+      children = (
+        <KittyListContainer />
       )
     }
     return(

@@ -9,10 +9,9 @@ class PlayGround extends Component {
   constructor(props) {
     super(props)
     this.saveToIpfs = this.saveToIpfs.bind(this)
-    this.howManyMemories = this.howManyMemories.bind(this)
   }
 
-  saveToIPFS() {
+  saveToIpfs() {
     const buffer = Buffer.from(this.props.playGroundSrc);
     const ipfs = Ipfs({host: 'localhost', port: '5001', protocol: 'http'});
     ipfs.add(buffer)
@@ -23,11 +22,6 @@ class PlayGround extends Component {
      console.error(err)
      // reject(err);
     })
-  }
-
-  async howManyMemories() {
-    const num = await this.props.contract.KittyMemoryCount.call(1)
-    console.log(num.toNumber())
   }
 
   render() {
@@ -41,7 +35,6 @@ class PlayGround extends Component {
           />
         }
         <button onClick={this.saveToIpfs}>Save to Eth</button>
-        <button onClick={this.howManyMemories}>How Many Memories</button>
       </div>
     );
   }

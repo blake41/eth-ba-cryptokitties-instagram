@@ -40,15 +40,15 @@ import { store } from './statesauce/src/statesauce.js'
 ReactDOM.render((
     <Provider store={store}>
       <BrowserRouter>
-        <div>
-          <Route path="/" component={Home} />
+        <Switch>
+          <Route exact path="/" component={Home} />
           <Route path='/playground' component={Switcher} />
           <Route path='/checkPlayground' component={Switcher} />
           <Route path='/capture' component={Switcher} />
           <Route path='/check' component={Switcher} />
-          <Route path='/kittySelect' component={KittySelect} />
-          <Route path='/kitties' component={KittyListContainer} />
-        </div>
+          <Route path='/kittySelect' component={Switcher} />
+          <Route path='/kitties' component={Switcher} />
+        </Switch>
       </BrowserRouter>
     </Provider>
   ),
