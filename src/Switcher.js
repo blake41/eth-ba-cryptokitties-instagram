@@ -35,6 +35,7 @@ class Switcher extends Component {
             leftRoute={'/kittySelect'}
             rightButtonText={"Capture"}
             leftButtonText={"Back"}
+            onboardingText={"Time to smile! Turn that cheese up to cheddar."}
             >
             <Webcam
               audio={false}
@@ -54,6 +55,7 @@ class Switcher extends Component {
             leftButtonText={"BACK"}
             rightButtonText={"Confirm"}
             rightAction={()=> {this.props.history.push('/playground')}}
+            onboardingText={"Daaaamn you good lookin'! Happy with the photo? Click that green button."}
             >
             <div className="flex top0 left0">
               <img src={this.props.userSrc}></img>
@@ -67,6 +69,7 @@ class Switcher extends Component {
           leftButtonText={"Back"}
           rightButtonText={"Save"}
           rightAction={this.savePlayground}
+          onboardingText={"Alright now click on that kitty down there! Move it. Resize it. You got this!"}
           >
           <PlayGround userSrc={this.props.userSrc}
             kittySrc={this.props.kittySrc}
@@ -78,6 +81,7 @@ class Switcher extends Component {
         <CameraContainer leftRoute={"/playground"}
           leftButtonText={"BACK"}
           rightButtonText={"Share"}
+          onboardingText={"You're a regular Picasso Kardashian! Go on and share it with the world!"}
           >
           <div className="flex top0 left0">
             <img height="480" src={this.props.playGroundSrc}></img>

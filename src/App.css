@@ -60,6 +60,10 @@ canvas {
   transform: skew(-50deg, -6deg);
 }
 
+.topPositionCat {
+  top: 9px;
+}
+
 /* Aesthetics */
 
 .dark-purple {
