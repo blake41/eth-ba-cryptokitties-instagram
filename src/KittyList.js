@@ -4,7 +4,7 @@ class KittyList extends Component {
 
   render() {
     var myKitties = [{ipfsHash: 'http://i.imgur.com/xmmgPKO.jpg'},
-                    {ipfsHash: 'i.imgur.com/8U28cvJ.jpg'}]
+                    {ipfsHash: 'http://i.imgur.com/8U28cvJ.jpg'}]
     const kitties = myKitties.map((kitty) => {
       return(
         <Kitty key={kitty.ipfsHash} ipfsHash={kitty.ipfsHash}/>
