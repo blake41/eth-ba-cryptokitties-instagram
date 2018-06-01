@@ -238,16 +238,37 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     // Minify the code.
     new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        screw_ie8: true, // React doesn't support IE8
-        warnings: false
-      },
-      mangle: {
-        screw_ie8: true
-      },
-      output: {
-        comments: false,
-        screw_ie8: true
+      // see: https://github.com/webpack-contrib/uglifyjs-webpack-plugin#options
+      cache: true,
+      parallel: true,
+
+      // see: https://github.com/mishoo/UglifyJS2/tree/harmony#minify-options
+      uglifyOptions: {
+        compress: {
+          // Needed to minify js-ipfs, see: https://github.com/ipfs/aegir/pull/214
+          unused: false,
+          // Needed to minify js-ipfs until v0.29 see: https://github.com/ipfs/js-ipfs/issues/1321
+          keep_classnames: true,
+          // Disabled because of an issue with Uglify breaking seemingly valid code:
+          // https://github.com/facebookincubator/create-react-app/issues/2376
+          // Pending further investigation:
+          // https://github.com/mishoo/UglifyJS2/issues/2011
+          comparisons: false,
+          // don't display warnings when dropping unreachable code
+          warnings: false,
+        },
+        mangle: {
+          // Needed to minify js-ipfs until v0.29 see: https://github.com/ipfs/js-ipfs/issues/1321
+          keep_classnames: true,
+          safari10: true,
+        },
+        output: {
+          comments: false,
+          // Turned on because emoji and regex is not minified properly using default
+          // https://github.com/facebookincubator/create-react-app/issues/2488
+          ascii_only: true,
+        },
+        sourceMap: shouldUseSourceMap,
       }
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
