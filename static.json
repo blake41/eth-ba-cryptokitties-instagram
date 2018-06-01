@@ -1,5 +1,5 @@
 {
-  "root": "public/",
+  "root": "build_webpack/",
   "routes": {
     "/**": "index.html"
   }
