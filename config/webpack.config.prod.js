@@ -7,7 +7,7 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
-
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 
 function ensureSlash(path, needsSlash) {
@@ -237,7 +237,7 @@ module.exports = {
     // Try to dedupe duplicated modules, if any:
     new webpack.optimize.DedupePlugin(),
     // Minify the code.
-    new webpack.optimize.UglifyJsPlugin({
+    new UglifyJsPlugin({
       // see: https://github.com/webpack-contrib/uglifyjs-webpack-plugin#options
       cache: true,
       parallel: true,
