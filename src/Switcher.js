@@ -16,6 +16,7 @@ class Switcher extends Component {
   constructor(props) {
     super(props)
     this.saveToIpfs = this.saveToIpfs.bind(this)
+    this.saveAndContinue = this.saveAndContinue.bind(this)
   }
 
   setRef = (webcam) => {
@@ -35,16 +36,22 @@ class Switcher extends Component {
     this.props.history.push('/checkPlayground')
   }
 
+  saveAndContinue() {
+    this.saveToIpfs()
+    this.props.history.push('/kitties')
+  }
+
   saveToIpfs = () => {
-    const buffer = Buffer.from(this.props.playGroundSrc, 'base64');
+    const buffer = Buffer.from(this.props.playGroundSrc);
     var localConn = {host: 'localhost', port: '5001', protocol: 'http'}
     var infuraConn = {host: 'ipfs.infura.io', port: '5001', protocol: 'https'}
     const ipfs = Ipfs(localConn);
+    var self = this
     ipfs.add(buffer)
     .then((response) => {
      console.log(`saved to IPFS:${response}`)
      const hash = response[0].hash
-     this.props.contract.pushMemory(1, hash, "this is a comment on the pic", {gas: 540000, from: this.props.userAccount}).then((res) => {
+     self.props.contract.pushMemory(1, hash, "this is a comment on the pic", {gas: 540000, from: self.props.userAccount}).then((res) => {
        console.log(`saved to ETH${res}`)
      })
     }).catch((err) => {
@@ -105,7 +112,7 @@ class Switcher extends Component {
           leftButtonText={"BACK"}
           rightButtonText={"Save To Ipfs"}
           onboardingText={"You're a regular Picasso Kardashian! Go on and share it with the world!"}
-          rightAction={this.saveToIpfs}
+          rightAction={this.saveAndContinue}
           >
           <div className="flex top0 left0 z-999">
             <img height="480" src={this.props.playGroundSrc}></img>

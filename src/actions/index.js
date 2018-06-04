@@ -2,7 +2,6 @@ import Web3 from 'web3'
 import axios from 'axios'
 // import TokenizedTicket from '../../build/contracts/TokenizedTicket.json'
 
-
 export const GET_WEB3 = 'get_web3'
 export const INSTANTIATE_CONTRACT = 'initiate_contract'
 export const CREATE_ZOMBIE = 'create_zombie'
@@ -10,7 +9,9 @@ import {
   STORE_IMAGE,
   FETCH_KITTY,
   SAVE_PLAYGROUND,
-  GET_KITTIES
+  GET_KITTIES,
+  IPFS_HOST,
+  STORE_KITTY_IMAGE_DATA
 } from '../actions/types'
 
 export function getKitties(contract, userAccount) {
@@ -20,13 +21,21 @@ export function getKitties(contract, userAccount) {
       var memoryArray = Array.from(Array(memoryCount).keys())
       memoryArray.forEach((i) => {
         contract.KittyMemories.call(1, i + 1).then((res) => {
-          const action = {
-            type: GET_KITTIES,
-            payload: {address: res[0], ipfsHash: res[1], comment: res[2]}
-          }
-          dispatch(action)
+          dispatch(getKittiesImageData({address: res[0], ipfsHash: res[1], comment: res[2]}))
         })
       })
+    })
+  }
+}
+
+export function getKittiesImageData(data) {
+  return function(dispatch) {
+    axios.get(`${IPFS_HOST}${data.ipfsHash}`).then((response) => {
+      const action = {
+        type: STORE_KITTY_IMAGE_DATA,
+        payload: { address: data.address, imageData: response.data, ipfsHash: data.ipfsHash, comment: data.comment }
+      }
+      dispatch(action)
     })
   }
 }

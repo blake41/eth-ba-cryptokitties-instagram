@@ -4,7 +4,7 @@ class Kitty extends Component {
   render() {
     return (
       <div>
-        <img src={`${this.props.ipfsHash}`}></img>
+        <img src={`${this.props.imageData}`}></img>
       </div>
     );
   }

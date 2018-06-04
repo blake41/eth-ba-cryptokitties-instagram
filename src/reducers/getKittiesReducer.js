@@ -1,10 +1,10 @@
 import {
-  GET_KITTIES
+  STORE_KITTY_IMAGE_DATA
 } from "../actions/types";
 
 const getKittiesReducer = (state = [], action) => {
   switch(action.type) {
-    case GET_KITTIES:
+    case STORE_KITTY_IMAGE_DATA:
       return [...state, action.payload]
   }
 
