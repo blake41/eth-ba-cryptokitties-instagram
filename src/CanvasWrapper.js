@@ -7,11 +7,11 @@ class CanvasWrapper extends Component {
 
     var canvas = new fabric.Canvas('canvas');
 
-    var pugImg = new Image();
-    pugImg.onload = function (img) {
-        var pug = new fabric.Image(pugImg, {
-            width: 1000,
-            height: 1000,
+    var kittyImg = new Image();
+    kittyImg.onload = function (img) {
+        var pug = new fabric.Image(kittyImg, {
+            width: 100,
+            height: 100,
             left: 50,
             top: 70,
             scaleX: .25,
@@ -19,8 +19,8 @@ class CanvasWrapper extends Component {
         });
         canvas.add(pug);
     };
-    pugImg.src = imgURL;
-    pugImg.crossOrigin = "Anonymous"
+    kittyImg.src = imgURL;
+    kittyImg.crossOrigin = "Anonymous"
 
     fabric.Image.fromURL(this.props.userSrc, function(img) {
   // img.set(puppyProps);
@@ -35,7 +35,7 @@ class CanvasWrapper extends Component {
   render() {
     return (
       <div>
-        <canvas id="canvas" width="640" height="480"></canvas>
+        <canvas id="canvas" width="300" height="480"></canvas>
       </div>
     );
   }

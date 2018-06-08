@@ -72,7 +72,7 @@ class Switcher extends Component {
     var children
     var camera
     if (this.props.match.path === "/capture") {
-      camera = !isMobile ? (
+      camera = isMobile ? (
         <MobileCamera saveDataUrl={this.saveDataUrl}/>
       ) : (
         <Webcam
