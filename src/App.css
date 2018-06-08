@@ -221,3 +221,10 @@ canvas {
   width: 1000px;
   height: 200px;
 }
+
+/* test */
+
+.someName {
+  color: black;
+  border: 10px solid black
+}

@@ -9,6 +9,8 @@ import { storeImage, savePlayground } from './actions'
 import PlayGround from './PlayGround'
 import KittyListContainer from './KittyListContainer'
 import KittySelect from './KittySelect'
+import MobileCamera from './MobileCamera'
+import { isMobile } from "react-device-detect";
 const Ipfs = require('ipfs-api')
 
 class Switcher extends Component {
@@ -17,6 +19,7 @@ class Switcher extends Component {
     super(props)
     this.saveToIpfs = this.saveToIpfs.bind(this)
     this.saveAndContinue = this.saveAndContinue.bind(this)
+    this.saveDataUrl = this.saveDataUrl.bind(this)
   }
 
   setRef = (webcam) => {
@@ -34,6 +37,11 @@ class Switcher extends Component {
     var dataURL = canvas.toDataURL()
     this.props.savePlayground(dataURL)
     this.props.history.push('/checkPlayground')
+  }
+
+  saveDataUrl(imageSrc) {
+    this.props.storeImage(imageSrc)
+    this.props.history.push('/check')
   }
 
   saveAndContinue() {
@@ -62,7 +70,20 @@ class Switcher extends Component {
 
   render() {
     var children
+    var camera
     if (this.props.match.path === "/capture") {
+      camera = !isMobile ? (
+        <MobileCamera saveDataUrl={this.saveDataUrl}/>
+      ) : (
+        <Webcam
+          className="z-999"
+          audio={false}
+          height={480}
+          ref={this.setRef}
+          screenshotFormat="image/jpeg"
+          width={640}
+        />
+      )
       children = (
           <CameraContainer rightAction={this.capture}
             leftRoute={'/kittySelect'}
@@ -70,14 +91,7 @@ class Switcher extends Component {
             leftButtonText={"Back"}
             onboardingText={"Time to smile! Turn that cheese up to cheddar."}
             >
-            <Webcam
-              className="z-999"
-              audio={false}
-              height={480}
-              ref={this.setRef}
-              screenshotFormat="image/jpeg"
-              width={640}
-            />
+            { camera }
           </CameraContainer>
       )
     } else if (this.props.match.path === "/check") {
