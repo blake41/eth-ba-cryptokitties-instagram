@@ -1,22 +1,31 @@
 import React, { Component } from 'react'
 import {fabric} from 'fabric';
+import { isAndroid } from 'react-device-detect'
 class CanvasWrapper extends Component {
 
   componentDidMount() {
     var imgURL = 'https://s3.amazonaws.com/eth-kitties/752340.svg';
 
     var canvas = new fabric.Canvas('canvas');
-
+    var iphoneSettings = {
+      width: 2500,
+      height: 2500,
+      left: 0,
+      top: 0,
+      scaleX: .1,
+      scaleY: .1
+    }
+    var androidSettings = {
+      width: 1300,
+      height: 1300,
+      left: 0,
+      top: 0,
+      scaleX: .25,
+      scaleY: .25
+    }
     var kittyImg = new Image();
     kittyImg.onload = function (img) {
-        var pug = new fabric.Image(kittyImg, {
-          width: 2500,
-          height: 2500,
-          left: 0,
-          top: 0,
-          scaleX: .1,
-          scaleY: .1
-        });
+        var pug = new fabric.Image(kittyImg, isAndroid ? androidSettings : iphoneSettings);
         canvas.add(pug);
     };
     kittyImg.src = imgURL;
