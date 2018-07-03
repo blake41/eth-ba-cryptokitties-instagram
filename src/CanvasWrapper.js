@@ -10,8 +10,8 @@ class CanvasWrapper extends Component {
     var kittyImg = new Image();
     kittyImg.onload = function (img) {
         var pug = new fabric.Image(kittyImg, {
-          width: 1100,
-          height: 1100,
+          width: 1500,
+          height: 1500,
           left: 0,
           top: 0,
           scaleX: .15,
