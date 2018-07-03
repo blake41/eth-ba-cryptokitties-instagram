@@ -14,8 +14,8 @@ class CanvasWrapper extends Component {
           height: 1100,
           left: 0,
           top: 0,
-          scaleX: .25,
-          scaleY: .25
+          scaleX: .15,
+          scaleY: .15
         });
         canvas.add(pug);
     };
