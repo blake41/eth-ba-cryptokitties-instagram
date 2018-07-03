@@ -10,12 +10,12 @@ class CanvasWrapper extends Component {
     var kittyImg = new Image();
     kittyImg.onload = function (img) {
         var pug = new fabric.Image(kittyImg, {
-            width: 300,
-            height: 300,
-            left: 0,
-            top: 0,
-            scaleX: .25,
-            scaleY: .25
+          width: 1100,
+          height: 1100,
+          left: 0,
+          top: 0,
+          scaleX: .25,
+          scaleY: .25
         });
         canvas.add(pug);
     };
@@ -35,7 +35,7 @@ class CanvasWrapper extends Component {
   render() {
     return (
       <div>
-        <canvas id="canvas" width="330" height="480"></canvas>
+        <canvas id="canvas" width="330" height="448"></canvas>
       </div>
     );
   }
